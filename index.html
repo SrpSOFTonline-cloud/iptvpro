@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, viewport-fit=cover">
-    <title>NIS TV Pro⚡</title>
+    <title>SHOVON IPTV PRO⚡</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
     <style>
         /* ========================================
-           NIS TV Pro - Complete CSS
+           SHOVON IPTV PRO - Complete CSS
            ======================================== */
         :root {
             --bg: #0f0f0f;
@@ -117,6 +117,29 @@
         .app-footer { background: rgba(0,0,0,0.7); text-align: center; padding: 8px 12px; font-size: 0.65rem; color: #aaa; border-top: 1px solid var(--border-dim); flex-shrink: 0; }
         [data-theme="light"] .app-footer { background: rgba(240,240,240,0.8); color: #333; }
 
+        /* FIFA World Cup ব্যানার */
+        .fifa-banner {
+            background: linear-gradient(135deg, #1a472a 0%, #0d5e2e 30%, #006b3f 50%, #00894a 70%, #1a472a 100%);
+            padding: 12px 20px;
+            display: flex; align-items: center; justify-content: center; gap: 12px;
+            border-bottom: 2px solid #ffd700;
+            flex-shrink: 0;
+            position: relative;
+            overflow: hidden;
+        }
+        .fifa-banner::before {
+            content: '';
+            position: absolute;
+            top: 0; left: -100%; width: 200%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,215,0,0.1), transparent);
+            animation: fifaShine 3s ease-in-out infinite;
+        }
+        @keyframes fifaShine { 0%{left:-100%} 100%{left:100%} }
+        .fifa-banner .fifa-icon { font-size: 1.5rem; }
+        .fifa-banner .fifa-text { font-size: 0.75rem; font-weight: 700; color: #fff; text-align: center; line-height: 1.4; }
+        .fifa-banner .fifa-text span { color: #ffd700; font-size: 0.85rem; }
+        .fifa-banner .fifa-year { background: #ffd700; color: #006b3f; padding: 3px 10px; border-radius: 20px; font-weight: 800; font-size: 0.7rem; white-space: nowrap; }
+
         /* লোডিং ওভারলে */
         .loading-overlay { position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.75); display: flex; align-items: center; justify-content: center; color: white; font-size: 14px; z-index: 10; backdrop-filter: blur(6px); border-radius: 24px; flex-direction: column; gap: 8px; }
         .global-loader { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #0a0a0a; z-index: 2000; display: flex; align-items: center; justify-content: center; color: white; flex-direction: column; gap: 12px; }
@@ -138,7 +161,7 @@
 
         /* মোবাইল */
         @media (max-width: 768px) {
-            .social-icons, .brand-tag { display: none !important; }
+            .brand-tag { display: none !important; }
             body, html { overflow: auto; height: auto; }
             .app-container { height: auto; min-height: 100vh; overflow: visible; display: block; }
             .main-row { display: block; height: auto; overflow: visible; }
@@ -193,8 +216,9 @@
 <!-- গ্লোবাল লোডার -->
 <div class="global-loader" id="global-loader">
     <i class="fas fa-tv" style="font-size:3rem;color:var(--accent);"></i>
-    <div style="font-size:1.2rem;font-weight:700;">NIS TV Pro</div>
+    <div style="font-size:1.2rem;font-weight:700;">SHOVON IPTV PRO</div>
     <div style="font-size:0.8rem;opacity:0.6;">চ্যানেল লোড হচ্ছে...</div>
+    <div style="font-size:0.6rem;opacity:0.4;margin-top:4px;">⚽ Bangladesh FIFA World Cup Edition</div>
 </div>
 
 <!-- মূল অ্যাপ -->
@@ -203,13 +227,19 @@
     <!-- টপবার -->
     <div class="top-bar">
         <div class="left-group">
-            <div class="brand-logo"><i class="fas fa-tv"></i><div><span class="brand-name">NIS TV Pro</span><span class="brand-tag">LIVE</span></div></div>
+            <div class="brand-logo"><i class="fas fa-tv"></i><div><span class="brand-name">SHOVON IPTV</span><span class="brand-tag">PRO</span></div></div>
             <div class="theme-toggle" id="themeToggleBtn"><i class="fas fa-moon"></i> <span id="themeText">ডার্ক</span></div>
         </div>
-        <div class="social-icons">
-            <a href="https://facebook.com/nisobuj01" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-            <a href="https://t.me/nisobuj00" target="_blank" aria-label="Telegram"><i class="fab fa-telegram-plane"></i></a>
+    </div>
+
+    <!-- FIFA World Cup ব্যানার -->
+    <div class="fifa-banner">
+        <div class="fifa-icon">⚽</div>
+        <div class="fifa-text">
+            <span>BANGLADESH FIFA WORLD CUP EDITION</span><br>
+            বাংলাদেশের জন্য এক্সক্লুসিভ ফিফা ওয়ার্ল্ড কাপ লাইভ স্ট্রিমিং
         </div>
+        <div class="fifa-year">⚽ FIFA 2026</div>
     </div>
 
     <!-- মেইন কন্টেন্ট -->
@@ -222,7 +252,7 @@
                 <div class="loading-overlay" style="display:none;"><i class="fas fa-circle-notch fa-spin"></i> স্ট্রিম খোলা হচ্ছে...</div>
             </div>
             <div class="video-info">
-                <h1 id="now-playing-title">NIS TV Pro <span class="live-badge">LIVE</span></h1>
+                <h1 id="now-playing-title">SHOVON IPTV PRO <span class="live-badge">LIVE</span></h1>
                 <select id="quality-selector" class="quality-selector" disabled>
                     <option value="auto">⚡ Auto (স্বয়ংক্রিয়)</option>
                     <option disabled>লোড হচ্ছে...</option>
@@ -243,13 +273,13 @@
 
     <!-- ফুটার -->
     <footer class="app-footer">
-        © NIS TV Pro | Powered by NIS | সকল স্ট্রিম তৃতীয় পক্ষের সোর্স থেকে সংগ্রহ করা
+        © SHOVON IPTV PRO | Bangladesh FIFA World Cup Edition | সকল স্ট্রিম তৃতীয় পক্ষের সোর্স থেকে সংগ্রহ করা
     </footer>
 
 </div>
 
 <!-- ========================================
-     NIS TV Pro - Complete JavaScript
+     SHOVON IPTV PRO - Complete JavaScript
      ======================================== -->
 <script>
     // ===== কনফিগারেশন =====
@@ -275,7 +305,7 @@
     // থিম সিস্টেম (ডার্ক/লাইট মোড)
     // ===================================
     function initTheme() {
-        let saved = localStorage.getItem("nis_theme") || "dark";
+        let saved = localStorage.getItem("shovon_theme") || "dark";
         document.body.setAttribute("data-theme", saved);
         updateThemeUI(saved);
     }
@@ -296,7 +326,7 @@
         const cur = document.body.getAttribute("data-theme");
         const next = cur === "dark" ? "light" : "dark";
         document.body.setAttribute("data-theme", next);
-        localStorage.setItem("nis_theme", next);
+        localStorage.setItem("shovon_theme", next);
         updateThemeUI(next);
     }
 
