@@ -168,11 +168,23 @@
             .loading-overlay { border-radius: 0; font-size: 10px; }
         }
 
+        /* মোবাইলে FIFA ব্যানার */
+        @media (max-width: 768px) {
+            .fifa-banner { padding: 8px 12px; gap: 8px; }
+            .fifa-banner .fifa-icon { font-size: 1.1rem; }
+            .fifa-banner .fifa-text { font-size: 0.6rem; }
+            .fifa-banner .fifa-text span { font-size: 0.7rem; }
+            .fifa-banner .fifa-year { font-size: 0.55rem; padding: 2px 8px; }
+        }
+
         /* অতিক্ষুদ্র ডিভাইস */
         @media (max-width: 480px) {
             .channel-list { grid-template-columns: repeat(auto-fill, minmax(62px, 1fr)) !important; gap: 5px; }
             .logo-wrapper { width: 40px; height: 40px; }
             .channel-name { font-size: 0.45rem; }
+            .fifa-banner .fifa-text { font-size: 0.5rem; }
+            .fifa-banner .fifa-text span { font-size: 0.6rem; }
+            .fifa-banner .fifa-year { font-size: 0.5rem; }
         }
     </style>
 </head>
